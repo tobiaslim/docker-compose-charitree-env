@@ -45,5 +45,9 @@ RUN docker-php-ext-install -j$(nproc) gd
 # Enable apache modules
 RUN a2enmod rewrite headers
 
+# Setup codes
 RUN git clone https://github.com/tobiaslim/Charitree-Server.git /var/www/html
 RUN composer install
+
+# Give write access for lumen to /var/www/html/stroage/logs
+RUN chmod 777 /var/www/html/stroage/logs
