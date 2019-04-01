@@ -49,9 +49,9 @@ RUN a2enmod rewrite headers
 RUN git clone https://github.com/tobiaslim/Charitree-Server.git /var/www/html
 RUN composer install
 
-COPY ./production /var/www/html
+COPY variables/production /var/www/html
 
-MOVE /var/www/html/production /var/www/html/.env
+COPY /var/www/html/production /var/www/html/.env
 
 # Give write access for lumen to /var/www/html/stroage/logs
 RUN chmod 777 /var/www/html/storage/logs
